@@ -2,6 +2,7 @@ package data;
 
 
 import org.joda.time.DateTime;
+import org.joda.time.LocalDateTime;
 
 import javax.persistence.*;
 
@@ -25,14 +26,14 @@ public class Image {
     @Column
     private final String user;
     @Column
-    private final DateTime timeOfCapture;
+    private final LocalDateTime timeOfCapture;
 
-    public Image(final String url,final String idToHashTag, final String user) {
+    public Image(final String url,final String idToHashTag, final String user,final LocalDateTime timeOfCapture) {
 
-        this.timeOfCapture = new DateTime();
         this.url = url;
         this.user = user;
         this.idToHashTag = idToHashTag;
+        this.timeOfCapture = timeOfCapture;
     }
 
 
@@ -40,7 +41,7 @@ public class Image {
         return id;
     }
 
-    public DateTime getTimeOfCapture() {
+    public LocalDateTime getTimeOfCapture() {
         return timeOfCapture;
     }
 
